@@ -1,0 +1,35 @@
+Name: Ray Sun
+Student Number: 20343049
+User-id: r7sun
+Assignment: 1
+
+The final executable was compiled on this machine: gl05.student.cs
+
+How to invoke my program: ./game488
+
+How to use my extra features:
+-Added reflection and floor with hex pattern (it's just there, doesn't really obstruct any required features)
+-Added exploding particles when lines get cleared...they also bounce off the floor (can also be tested by pressing 'T', it can double as a sprinkler)
+-Added emulated crepuscular rays since I don't know how to use shaders yet (Toggle by pressing 'B', it will reset the view)
+	>recommended only to zoom out (zooming out is actually pretty important) and not do rotations in this mode
+	>The way I implemented only assumes the default orientation when sorting for alpha blending, if you rotate it'll kinda break the illusion
+	>also I only enabled it in face rendering mode...don't have much love for the other two modes
+-Added lighting with weighted normals (combine the point to center and face to center interpolation to get gradient shading without looking too rounded)
+	>light can be moved using 'I,J,K,L' keys, but I find the default position to provide pretty optimal lighting
+-Added corner bevels to the blocks
+-Added exponential decay on rotation velocity when mouse held down as well as square rooting velocities above a threshold
+	>this is useful on trackpads since the action of letting go while moving the cursor is harder than doing the same thing on a mouse (the velocity prior to letting go would often drop to 0)
+	>an alternative would have been to average the velocity for a couple of timesteps prior to letting go, either way seems to be viable
+	>pressing a button when a rotation is going automatically ("gravity") will stop the rotation
+	>sqrt on high velocity values so we don't get crazy fast spinning when the cursor gets flicked
+-Added a new 2 square piece as required
+-The 3 falling speeds are 100ms, 300ms and 500ms
+
+I have created the following data files, which are in the data directory: no data files.
+
+My program assumes the following:
+-Any of the the information that was on piazza as of Jan 25
+-We actually get points for doing extra stuff?
+-Also, the developer will be going to get chemo after prolonged exposure to GTKmm
+	>seriously, the radio menu elem updating is really sketchy. Sometimes you have to wait to see it update. At times it'll literally change to the correct one while you have the menu open.
+	>also the elegant way of updating doesn't even work for certain versions of GTKmm, like the one on my laptop (which according to apt-get is up to date)...you have to pop and push everything in order to get it to work.
